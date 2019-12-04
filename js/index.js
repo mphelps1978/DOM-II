@@ -5,8 +5,8 @@ var sound = document.createElement('audio');
 sound.src = '/img/Bike Horn-SoundBible.com-602544869.mp3';
 
 document.querySelectorAll('.nav-link').forEach(element => {
-  element.addEventListener('click', function (e) {
-    e.preventDefault();
+	element.addEventListener('click', function(e) {
+		e.preventDefault();
 		sound.play();
 	});
 });
@@ -16,14 +16,24 @@ document.querySelectorAll('.nav-link').forEach(element => {
 const contentImages = document.querySelectorAll('img');
 contentImages.forEach(element => {
 	element.addEventListener('mouseenter', () => {
-		element.style.transform = 'scale(1.2)';
-		element.style.transition = 'transform 0.5s';
+		//stretch task
+		TweenMax.to(element, 0.1, { x: '+=20', yoyo: true, repeat: 5 });
+		TweenMax.to(element, 0.1, { x: '-=20', yoyo: true, repeat: 5 });
+
+
+
+    //MVP task
+
+    // element.style.transform = 'scale(1.2)';
+		// element.style.transition = 'transform 0.5s';
 	});
 
-	element.addEventListener('mouseleave', () => {
-		element.style.transform = 'scale(1)';
-		element.style.transition = 'transform 0.5s';
-	});
+	// MVP Task
+
+	// element.addEventListener('mouseleave', () => {
+	// element.style.transform = 'scale(1)';
+	// element.style.transition = 'transform 0.5s';
+	// });
 });
 
 // 4 and 5. This isn't a real company, so we probably don't want to sell any tours just yet, right? But this is just a test, so we should leave them alone for normal clicks. (using ShiftClick and AltClick events)
