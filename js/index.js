@@ -5,7 +5,8 @@ var sound = document.createElement('audio');
 sound.src = '/img/Bike Horn-SoundBible.com-602544869.mp3';
 
 document.querySelectorAll('.nav-link').forEach(element => {
-	element.addEventListener('click', function() {
+  element.addEventListener('click', function (e) {
+    e.preventDefault();
 		sound.play();
 	});
 });
@@ -13,7 +14,6 @@ document.querySelectorAll('.nav-link').forEach(element => {
 // 2, 3. Make the images POP (using MouseEnter and MouseLeave events)
 
 const contentImages = document.querySelectorAll('img');
-console.log(contentImages);
 contentImages.forEach(element => {
 	element.addEventListener('mouseenter', () => {
 		element.style.transform = 'scale(1.2)';
@@ -87,5 +87,13 @@ h2s.forEach(element => {
 	element.addEventListener('dblclick', () => {
 		element.style.color = 'dodgerblue';
 		element.style.textDecoration = 'underline overline wavy green';
+	});
+});
+
+const nav2s = document.querySelectorAll('.nav-link2');
+nav2s.forEach(element => {
+	element.addEventListener('click', () => {
+		element.style.color = 'pink';
+		stopPropagation();
 	});
 });
