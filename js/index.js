@@ -48,8 +48,44 @@ document.addEventListener('visibilitychange', () => {
 	}
 });
 
-// 7. Of course we don't want people to copy our work, right?
-document.addEventListener('click', event => {
+//  Ok enough with the boring stuff, time to have some fun
 
+// 7, 8. Let's change the background color every time a button is clicked on with anything but the left button (auxclick and contextmenu events) and if the user left clicks.. yell at them
 
+let button = document.querySelector('#colorChanger');
+let html = document.querySelector('html');
+
+function random(number) {
+	return Math.floor(Math.random() * number);
+}
+function randomColor() {
+	return `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+}
+button.onclick = function(e) {
+	e.preventDefault();
+	alert('I said RIGHT click! Pay attention!');
+};
+button.onauxclick = function(e) {
+	e.preventDefault();
+	button.style.color = randomColor();
+	html.style.backgroundColor = randomColor();
+};
+button.oncontextmenu = function(e) {
+	e.preventDefault();
+};
+
+// 9. My creativity is running thin here, so let's do something a little different. Welcome the user when they come to the page. (load event)
+
+window.addEventListener('load', () => {
+	alert('Welcome!');
+});
+
+// 10. And one more for MVP. Double Click on the h2s (dblclick Event)
+
+const h2s = document.querySelectorAll('h2');
+h2s.forEach(element => {
+	element.addEventListener('dblclick', () => {
+		element.style.color = 'dodgerblue';
+		element.style.textDecoration = 'underline overline wavy green';
+	});
 });
