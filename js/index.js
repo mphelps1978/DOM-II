@@ -20,11 +20,9 @@ contentImages.forEach(element => {
 		TweenMax.to(element, 0.1, { x: '+=20', yoyo: true, repeat: 5 });
 		TweenMax.to(element, 0.1, { x: '-=20', yoyo: true, repeat: 5 });
 
+		//MVP task
 
-
-    //MVP task
-
-    // element.style.transform = 'scale(1.2)';
+		// element.style.transform = 'scale(1.2)';
 		// element.style.transition = 'transform 0.5s';
 	});
 
@@ -42,7 +40,7 @@ const soldOut = document.querySelectorAll('.btn');
 soldOut.forEach(element => {
 	element.addEventListener('click', event => {
 		if (event.shiftKey) {
-			alert('Sorry, sold out!');
+			element.innerHTML = 'Sorry, sold out!';
 		}
 		if (event.altKey) {
 			element.innerHTML = 'Booked! (not really)';
